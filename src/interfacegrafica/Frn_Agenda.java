@@ -5,6 +5,7 @@
  */
 package interfacegrafica;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -86,6 +87,11 @@ public class Frn_Agenda extends javax.swing.JFrame {
         btnAtualizar.setText("Atualizar");
 
         btnExcluir.setText("Excluir");
+        btnExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcluirActionPerformed(evt);
+            }
+        });
 
         btInserir.setText("Inserir");
         btInserir.addActionListener(new java.awt.event.ActionListener() {
@@ -160,13 +166,23 @@ public class Frn_Agenda extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInserirActionPerformed
-        
-        
+
         DefaultTableModel dtmAgenda = (DefaultTableModel) tbLista.getModel();
         Object[] dados = {txtNome.getText(), txtTelefone.getText()};
         dtmAgenda.addRow(dados);
-        
+
     }//GEN-LAST:event_btInserirActionPerformed
+
+    private void btnExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcluirActionPerformed
+        // TODO add your handling code here:
+        if (tbLista.getSelectedRow() != -1) {
+            DefaultTableModel dtmAgenda = (DefaultTableModel) tbLista.getModel();
+            dtmAgenda.removeRow(tbLista.getSelectedRow());
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione Um Registro");
+        }
+    }//GEN-LAST:event_btnExcluirActionPerformed
 
     /**
      * @param args the command line arguments
