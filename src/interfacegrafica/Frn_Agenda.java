@@ -42,6 +42,8 @@ public class Frn_Agenda extends javax.swing.JFrame {
         btnExcluir = new javax.swing.JButton();
         btInserir = new javax.swing.JButton();
         txtTelefone = new javax.swing.JFormattedTextField();
+        cbSexo = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -57,6 +59,7 @@ public class Frn_Agenda extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setIconImage(new javax.swing.ImageIcon("C:\\Users\\adriano.camargo\\Desktop\\surprise.png").getImage());
         setResizable(false);
 
         jLabel1.setText("Nome:");
@@ -71,11 +74,11 @@ public class Frn_Agenda extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Telefone"
+                "Nome", "Telefone", "Sexo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -89,21 +92,21 @@ public class Frn_Agenda extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tbLista);
 
-        btnAtualizar.setText("Atualizar");
+        btnAtualizar.setIcon(new javax.swing.ImageIcon("C:\\Users\\adriano.camargo\\Desktop\\updated.png")); // NOI18N
         btnAtualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAtualizarActionPerformed(evt);
             }
         });
 
-        btnExcluir.setText("Excluir");
+        btnExcluir.setIcon(new javax.swing.ImageIcon("C:\\Users\\adriano.camargo\\Desktop\\delete.png")); // NOI18N
         btnExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExcluirActionPerformed(evt);
             }
         });
 
-        btInserir.setText("Inserir");
+        btInserir.setIcon(new javax.swing.ImageIcon("C:\\Users\\adriano.camargo\\Desktop\\insert.png")); // NOI18N
         btInserir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btInserirActionPerformed(evt);
@@ -116,37 +119,52 @@ public class Frn_Agenda extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        cbSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Maculino", "Feminino" }));
+
+        jLabel4.setText("Sexo");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNome))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTelefone)))
-                .addGap(54, 54, 54))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(147, 147, 147)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
                         .addComponent(btInserir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnExcluir)
                         .addGap(123, 123, 123)
-                        .addComponent(btnAtualizar))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE))
+                        .addComponent(btnAtualizar)))
                 .addGap(22, 22, 22))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(108, 108, 108)
+                                .addComponent(jLabel3))
+                            .addComponent(jLabel4))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtNome))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTelefone)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addGap(54, 54, 54))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,14 +179,18 @@ public class Frn_Agenda extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbSexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAtualizar)
                     .addComponent(btnExcluir)
                     .addComponent(btInserir))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -178,8 +200,11 @@ public class Frn_Agenda extends javax.swing.JFrame {
     private void btInserirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInserirActionPerformed
 
         DefaultTableModel dtmAgenda = (DefaultTableModel) tbLista.getModel();
-        Object[] dados = {txtNome.getText(), txtTelefone.getText()};
+        Object[] dados = {txtNome.getText(), txtTelefone.getText(), cbSexo.getSelectedItem()};
         dtmAgenda.addRow(dados);
+        txtNome.setText("");
+        txtTelefone.setText("");
+        txtNome.requestFocus();
 
     }//GEN-LAST:event_btInserirActionPerformed
 
@@ -188,6 +213,9 @@ public class Frn_Agenda extends javax.swing.JFrame {
         if (tbLista.getSelectedRow() != -1) {
             DefaultTableModel dtmAgenda = (DefaultTableModel) tbLista.getModel();
             dtmAgenda.removeRow(tbLista.getSelectedRow());
+            txtNome.setText("");
+            txtTelefone.setText("");
+            txtNome.requestFocus();
 
         } else {
             JOptionPane.showMessageDialog(null, "Selecione Um Registro");
@@ -205,9 +233,13 @@ public class Frn_Agenda extends javax.swing.JFrame {
     }//GEN-LAST:event_tbListaMouseClicked
 
     private void btnAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtualizarActionPerformed
-        if (tbLista.getSelectedRow() != -1) {            
-            tbLista.setValueAt(txtNome.getText(),tbLista.getSelectedRow(),0);
-            tbLista.setValueAt(txtTelefone.getText(),tbLista.getSelectedRow(),1);
+        if (tbLista.getSelectedRow() != -1) {
+            tbLista.setValueAt(txtNome.getText(), tbLista.getSelectedRow(), 0);
+            tbLista.setValueAt(txtTelefone.getText(), tbLista.getSelectedRow(), 1);
+            tbLista.setValueAt(cbSexo.getSelectedItem(), tbLista.getSelectedRow(), 2);
+            txtNome.setText("");
+            txtTelefone.setText("");
+            txtNome.requestFocus();
 
         }
 
@@ -252,9 +284,11 @@ public class Frn_Agenda extends javax.swing.JFrame {
     private javax.swing.JButton btInserir;
     private javax.swing.JButton btnAtualizar;
     private javax.swing.JButton btnExcluir;
+    private javax.swing.JComboBox<String> cbSexo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
